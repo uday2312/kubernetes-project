@@ -1,0 +1,11 @@
+FROM centos:latest
+MAINTAINER kalwakolanuuday1998@gmail.com
+RUN apt install -y httpd\
+tar\
+untar
+ADD https://dlcdn.apache.org/httpd/httpd-2.4.57.tar.gz /var/www/html
+WORKDIR /var/www/html/
+RUN untar tar.gz
+RUN cp -rvf tar.gz/* .
+CMD["/usr/sbin/taz","-A","FOREGROUND"]
+EXPOSE 80
